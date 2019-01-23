@@ -17,22 +17,31 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	NSDictionary *personData = @{@"name" : @"qiaobahui",
-															 @"language" : @"english"
-															 };
-	
+	[self savePersonData];
+}
+
+#pragma mark - Private Methods
+
+- (void)savePersonData {
+	NSDictionary *personData = @{@"name" : @"qiaobahui",  @"language" : @"english"};
 	[BHPerson createOrUpdateByDictionaryData:personData completion:^(BOOL success, NSError * _Nonnull error) {
-		NSLog(@"Saved Succeed!");
+		NSLog(@"SAVE SUCCEED!");
 	}];
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+- (void)fetchPersonData {
 	BHPerson *peron = [BHPerson current];
 	NSLog(@"name: %@", peron.name);
 	NSLog(@"language: %@", peron.language);
 	/* 输出: name: qiaobahui
-					language: english/changed
+	 language: english/changed
 	 */
+}
+
+#pragma mark - UITouch Methods
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+	[self fetchPersonData];
 }
 
 @end
