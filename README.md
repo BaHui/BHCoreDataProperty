@@ -65,7 +65,6 @@ NSManagedObject will now also allow subclasses to override accessors and still i
 
 ### 存取
 ```
-#pragma mark - Private Methods
 
 - (void)savePersonData {
   NSDictionary *personData = @{@"name" : @"qiaobahui",  @"language" : @"english"};
