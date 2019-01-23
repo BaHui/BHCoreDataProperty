@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BHPerson (DataManager)
 
++ (instancetype)current;
 + (void)createOrUpdateByDictionaryData:(NSDictionary *)data completion:(void(^)(BOOL success, NSError *error))completion;
 
 @end

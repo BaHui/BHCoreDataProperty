@@ -12,6 +12,10 @@
 
 @implementation BHPerson (DataManager)
 
++ (instancetype)current {
+	return [BHPerson MR_findFirst];
+}
+
 + (void)createOrUpdateByDictionaryData:(NSDictionary *)data completion:(void(^)(BOOL success, NSError *error))completion {
 	[MagicalRecord saveWithBlock:^(NSManagedObjectContext *context) {
 		
